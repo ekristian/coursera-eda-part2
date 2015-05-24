@@ -29,6 +29,16 @@ question1 <- function() {
         ylab="Total PM2.5 Emissions",
         main="Total PM2.5 Emission from All Sources")
 }
-
-
 plot2png("question1.png", question1)
+
+
+question2 <- function() {
+    NEI %>% filter(fips == "24510") %>% group_by(year) %>%
+        summarize(TotalEmissions=sum(Emissions)) -> q2
+    plot(q2$year, q2$TotalEmissions, t="l",
+         xlab="Emission Year",
+         ylab="Total PM2.5 Emissions",
+         main="Total PM2.5 Emission from All Sources\nBarlimore City")
+}
+
+plot2png("question2.png", question2)
