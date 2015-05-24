@@ -18,7 +18,11 @@ plot2png <- function(filename, plotfn) {
     plotfn()
     dev.off()
 }
-
+qplot2png <- function(filename, plotfn) {
+    png(filename, width=800, height=480)
+    print(plotfn())
+    dev.off()
+}
 # Question 1:
 # Using the base plotting system, make a plot showing the
 # total PM2.5 emission from all sources
@@ -49,7 +53,7 @@ question3 <- function() {
     NEI %>% filter(fips=="24510") %>% group_by(year, type) %>%
         summarise(TotalEmissions=sum(Emissions)) -> q3
     qplot(year, TotalEmissions, data=q3, color=type,
-          facets= . ~ type) + geom_line()
-    ggsave(file="question3.png", width=4, height=4, scale=0.5, dpi=150)
+          facets= . ~ type) + geom_line() +
+        ggtitle("Balitimore City PM2.5 Emissions by Type")
 }
-question3()
+qplot2png("question3.png", question3)
