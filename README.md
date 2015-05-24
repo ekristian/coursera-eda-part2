@@ -16,3 +16,8 @@ Answer: Yes
 Have total emissions from PM2.5 decreased in the Baltimore City, Maryland (fips == 24510) from 1999 to 2008? Use the base plotting system to make a plot answering this question.
 
 Answer: Yes
+
+# Question 3
+Of the four types of sources indicated by the type (point, nonpoint, onroad, nonroad) variable, which of these four sources have seen decreases in emissions from 1999–2008 for Baltimore City? Which have seen increases in emissions from 1999–2008? 
+
+Answer: All types have seen overall decrease from 1999 thru 2008 with the exception of Non-Road and Point with both saw increases from 2002 thru 2005

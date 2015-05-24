@@ -1,4 +1,5 @@
 library(dplyr)
+library(ggplot2)
 
 # Create a ParticulateMatter object using the project data source
 # parameters.
@@ -42,3 +43,13 @@ question2 <- function() {
 }
 
 plot2png("question2.png", question2)
+
+
+question3 <- function() {
+    NEI %>% filter(fips=="24510") %>% group_by(year, type) %>%
+        summarise(TotalEmissions=sum(Emissions)) -> q3
+    qplot(year, TotalEmissions, data=q3, color=type,
+          facets= . ~ type) + geom_line()
+    ggsave(file="question3.png", width=4, height=4, scale=0.5, dpi=150)
+}
+question3()
