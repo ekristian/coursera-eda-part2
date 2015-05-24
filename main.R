@@ -10,6 +10,14 @@ pm <- ParticulateMatter(
 NEI <- pm$getNEI()
 SCC <- pm$getSCC()
 
+
+# Convenience wrapper to output a plotting function to a PNG file.
+plot2png <- function(filename, plotfn) {
+    png(filename, width=480, height=480)
+    plotfn()
+    dev.off()
+}
+
 # Question 1:
 # Using the base plotting system, make a plot showing the
 # total PM2.5 emission from all sources
@@ -23,4 +31,4 @@ question1 <- function() {
 }
 
 
-pm$plot2png("question1.png", question1)
+plot2png("question1.png", question1)
