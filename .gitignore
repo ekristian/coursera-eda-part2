@@ -18,3 +18,4 @@ vignettes/*.pdf
 *.zip
 *.rds
 *.csv
+*.RData
